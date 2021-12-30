@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ENG101 Letter Grade Calculator</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="finals.css">
+        <script src="eng101.js"></script>
+        <!-- Now you don't have to squint on mobile! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body onload="calculateFinal()">
+        <h1>Letter Grade Calculator for ENG101</h1>
+        <br>
+        <table class="inputs">
+            <tbody>
+                <tr>
+                    <th>Assessment</th>
+                    <th>Score</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Essay 1 (out of 22)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="essay1" id="essay1" oninput="calculateFinal()" value="22" max="22" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Essay 2 (out of 22)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="essay2" id="essay2" value="22" oninput="calculateFinal()" value="22" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Oral presentation (out of 30)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="oral" id="oral" oninput="calculateFinal()" value="30" max="30" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Student Led Discussion (out of 21)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="disc" id="disc" oninput="calculateFinal()" value="21" max="21" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Summary and Critical Response (out of 36)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="summary" id="summary" oninput="calculateFinal()" value="36" max="36" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Self progress task (out of 4)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="prog" id="prog" value="4" oninput="calculateFinal()" max="4" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Final Essay (out of 22)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="final" id="final" value="22" oninput="calculateFinal()" min="0" max="22">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2 id="results"></h2>
+        <a href="/">Back to the homepage</a>
+        <div class="bottom">
+            <h3><a id=shout href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+            <h5><a href="/about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+            <h6>Last update: 14/01/2021</h6>
+        </div>
+        <script src="/fancytitle.js"></script>
+    </body>
+</html>

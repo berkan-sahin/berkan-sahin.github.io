@@ -1,0 +1,29 @@
+table{
+  margin-left: auto;
+  margin-right: auto;
+  width:15%;
+}
+td, th{
+  text-align: center;
+}
+caption {
+  text-align: center;
+}
+input{
+  width: 80px;
+  text-align: center;
+}
+.inputs td{
+  width: 5%;
+}
+.sectionHead {
+  text-align: center;
+}
+#FZ{
+    visibility: hidden;
+    color: #cc241d;
+    text-align: center;
+}
+#results{
+  text-align: center;
+}

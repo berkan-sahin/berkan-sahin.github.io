@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MATH101/102 Final Calculator</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="finals.css">
+        <script src="math101.js"></script>
+        <!-- Now you don't have to squint on mobile! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body onload="calculateFinal()">
+        <h1>Final Calculator for MATH101/102</h1>
+        <br>
+        <table class="inputs">
+            <tbody>
+                <tr>
+                    <th>Midterm Score</th>
+                    <th>Quiz Average</th>
+                    <th>Homework Average</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="mtScore" id="mtScore" value="100" oninput="calculateFinal()">
+                    </td>
+                    <td>
+                        <input type="text" name="qAvg" id="qAvg" value="10" oninput="calculateFinal()">
+                    </td>
+                    <td>
+                        <input type="text" name="hwAvg" id="hwAvg" value="100" oninput="calculateFinal()">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2 id="FZ">Not eligible for finals :(</h2>
+        <table class="req_score" id="reqScores">
+            <tbody>
+                <tr>
+                    <th>Required Final Score</th>
+                    <th>Resulting Letter Grade</th>
+                </tr>
+                <tr>
+                    <td><p id="D">∅</p></td>
+                    <td><p>D</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Dplus">∅</p></td>
+                    <td><p>D+</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Cminus">∅</p></td>
+                    <td><p>C-</p></td>
+                </tr>
+                <tr>
+                    <td><p id="C">∅</p></td>
+                    <td><p>C</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Cplus">∅</p></td>
+                    <td><p>C+</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Bminus">∅</p></td>
+                    <td><p>B-</p></td>
+                </tr>
+                <tr>
+                    <td><p id="B">∅</p></td>
+                    <td><p>B</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Bplus">∅</p></td>
+                    <td><p>B+</p></td>
+                </tr>
+                <tr>
+                    <td><p id="Aminus">∅</p></td>
+                    <td><p>A-</p></td>
+                </tr>
+                <tr>
+                    <td><p id="A">∅</p></td>
+                    <td><p>A</p></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/">Back to the homepage</a>
+        <div class="bottom">
+            <h3><a id=shout href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+            <h5><a href="/about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+            <h6>Last update: 06/03/2021</h6>
+        </div>
+        <script src="/fancytitle.js"></script>
+    </body>
+</html>

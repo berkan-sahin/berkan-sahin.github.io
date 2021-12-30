@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Berkan Şahin" />
+  <title>Salep</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #ebdbb2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #ebdbb2; } /* Normal */
+    code span.al { color: #282828; background-color: #cc241d; font-weight: bold; } /* Alert */
+    code span.an { color: #98971a; } /* Annotation */
+    code span.at { color: #d79921; } /* Attribute */
+    code span.bn { color: #f67400; } /* BaseN */
+    code span.bu { color: #d65d0e; } /* BuiltIn */
+    code span.cf { color: #cc241d; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #b16286; } /* Char */
+    code span.cn { color: #b16286; font-weight: bold; } /* Constant */
+    code span.co { color: #928374; } /* Comment */
+    code span.cv { color: #928374; } /* CommentVar */
+    code span.do { color: #98971a; } /* Documentation */
+    code span.dt { color: #d79921; } /* DataType */
+    code span.dv { color: #f67400; } /* DecVal */
+    code span.er { color: #cc241d; text-decoration: underline; } /* Error */
+    code span.ex { color: #689d6a; font-weight: bold; } /* Extension */
+    code span.fl { color: #f67400; } /* Float */
+    code span.fu { color: #689d6a; } /* Function */
+    code span.im { color: #689d6a; } /* Import */
+    code span.in { color: #282828; background-color: #83a598; } /* Information */
+    code span.kw { color: #ebdbb2; font-weight: bold; } /* Keyword */
+    code span.op { color: #ebdbb2; } /* Operator */
+    code span.ot { color: #689d6a; } /* Other */
+    code span.pp { color: #d65d0e; } /* Preprocessor */
+    code span.re { color: #928374; background-color: #1d2021; } /* RegionMarker */
+    code span.sc { color: #b16286; } /* SpecialChar */
+    code span.ss { color: #98971a; } /* SpecialString */
+    code span.st { color: #98971a; } /* String */
+    code span.va { color: #458588; } /* Variable */
+    code span.vs { color: #98971a; } /* VerbatimString */
+    code span.wa { color: #282828; background-color: #fabd2f; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Salep</h1>
+</header>
+<p>Salep is a chatbot for Discord whose primary purpose is to store quotes (a.k.a inciler) for various contexts and when called upon, message one of those quotes at random. It also displays exchange rate for various currencies compared with the Turkish Lira.</p>
+<p>Salep is free (özgür) software licensed under GNU Affero GPL 3.0. Source code of Salep is hosted on <a href="https://github.com/berkan-sahin/salep">GitHub</a>.</p>
+<h2 id="setup">Setup</h2>
+<p>Please make sure that MongoDB is <a href="https://docs.mongodb.com/manual/installation/">installed</a> and running before starting up the bot</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/berkan-sahin/salep.git <span class="co"># Clone the repository</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">cd</span> salep</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="ex">python3</span> -m venv .venv # Create virtual env</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="bu">source</span> .venv/bin/activate <span class="co"># Switch into virtual env</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="ex">python3</span> -m pip install discord.py requests pymongo # Install dependencies</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;YOUR-DISCORD-TOKEN-HERE&quot;</span> <span class="op">&gt;</span> TOKEN <span class="co"># Token file stores private info</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;YOUR-CURRENCY-API-KEY-HERE&quot;</span> <span class="op">&gt;&gt;</span> TOKEN <span class="co"># *MAKE SURE TO ADD IT IN .gitignore in order to avoid bot abuse*</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="ex">python3</span> salep.py # Test the bot, when you are done hit Ctrl-C</span></code></pre></div>
+<p>For subsequent runs, you can run the <code>launch.sh</code> from inside the project root and type <code>kill $(cat .pid)</code> to kill the bot</p>
+<h2 id="invocation">Invocation</h2>
+<p>Below are the commands that are suported by Salep</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 29%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Arguments</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s!döviz</td>
+<td>name or three letter code for the currency</td>
+<td>Reports the current exchange rate between a user-specified currency and the Turkish Lira</td>
+<td><code>s!döviz dolar</code> or <code>s!döviz usd</code></td>
+</tr>
+<tr class="even">
+<td>s!add_quote</td>
+<td>name or <span class="citation" data-cites="mention">@mention</span> of the person the quote belongs to, followed by the quote</td>
+<td>Adds a quote to the corresponding entry for the mentioned person and creates said entry if the person doesn’t exist</td>
+<td><code>s!add_quote @torvalds Talk is cheap, show me the code.</code> or <code>s!add_quote wall Most of you are familiar with the virtues of a programmer. There are three, of course: laziness, impatience, and hubris.</code></td>
+</tr>
+<tr class="odd">
+<td>s!quote</td>
+<td>name or <span class="citation" data-cites="mention">@mention</span> of the person to pick a quote from</td>
+<td>Picks and posts a quote belonging to the specific person and guild at random from the database</td>
+<td><code>s!quote @torvalds</code> or <code>s!quote wall</code></td>
+</tr>
+<tr class="even">
+<td>s!capture_quote</td>
+<td>N/A</td>
+<td>Captures the message that was replied to and stores it as a quote</td>
+<td>N/A</td>
+</tr>
+<tr class="odd">
+<td>s!rm_quote</td>
+<td>name or <span class="citation" data-cites="mention">@mention</span>, followed by a unique part of the quote to be removed</td>
+<td>Remove any quote containing the specified word(s) <em>This command can only be called by members that are permitted to manage messages</em></td>
+<td><code>s!rm_quote wall virtues</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="invites">Invites</h2>
+<p>Since the bot is WIP, I don’t publicly distribute invites yet. If you wish to test the bot however, you can <a href="mailto:berkan.sahin@ug.bilkent.edu.tr">email me</a> in order to receive the invite link</p>
+<h2 id="documentation">Documentation</h2>
+<p>Coming <em>very</em> soon!</p>
+<a href="/">Back to the homepage</a>
+<div class="bottom">
+<h3><a id="shout" href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+<h5><a href="/about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+<h6>Last update: 21/01/2021</h6>
+<h6>Generated with <a href="https://pandoc.org">Pandoc</a></h6>
+</div>
+<script src="/fancytitle.js"></script>
+</body>
+</html>

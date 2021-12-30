@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Berkan Şahin" />
+  <meta name="dcterms.date" content="2021-04-01" />
+  <title>Webpage Generation for Lazy People</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Webpage Generation for Lazy People</h1>
+</header>
+<figure>
+<img src="pandoc1.png" alt="" /><figcaption>A demonstration of pandoc</figcaption>
+</figure>
+<p>If you are someone like me, you quickly get bored of repetitive tasks and if they are related to computers you seek ways to automate them. Writing HTML by hand was fun for the first few times but it got boring as the amount of boilerplate per webpage started increasing. Thankfully, there are numerous utilities that makes lives of lazy people like me easier while not being insanely bloated. One such utility is <a href="https://pandoc.org/">Pandoc</a>.</p>
+<h2 id="what-is-pandoc">What is Pandoc?</h2>
+<p>Pandoc is a Haskell library and a command-line utility that converts various markup formats between each other. It is often used to convert markdown files to other formats like LaTeX, HTML, DOC etc.</p>
+<h2 id="markdown">Markdown?</h2>
+<p>You might have used markdown without even hearing its name. It is used widely to indicate formatting in sites/platforms such as <a href="https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/about-writing-and-formatting-on-github">GitHub</a>, <a href="https://www.reddit.com/r/changelog/comments/mg1j6/reddit_change_new_markdown_interpreter/">Reddit</a> and <a href="https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-">Discord</a> to name a few.</p>
+<p>Markdown was originally created to produce text that is easily readable by humans and formattable by machines. You can check out <a href="https://guides.github.com/features/mastering-markdown/">this guide</a> by GitHub to learn the basics of Markdown.</p>
+<h2 id="installing-pandoc">Installing Pandoc</h2>
+<p>Refer to the instructions <a href="https://pandoc.org/installing.html">here</a> to install Pandoc for your platform (the rest of this guide assumes that you are running a distribution of GNU/Linux, but it should work with Windows and macOS with minor, if any, changes)</p>
+<h2 id="modifying-the-html-template">Modifying the HTML Template</h2>
+<p>By default, pandoc only creates a “chunk” of HTML that you can add to an existing site. For standalone web pages, there is a standalone mode in which pandoc inserts the HTML equivalent of your Markdown text and various data (date, title, stylesheet names etc.) into a HTML template. You can specify a custom template file to have more control over your page’s layout.</p>
+<p>You can modify the default template instead of writing one from scratch, since most people will need few deviations from the defaults. To do so, you first need to tell pandoc to put the default HTML template into a file by typing <code>pandoc -D html &gt; template.html</code> into your terminal/command prompt. You can now open the file in your preferred text editor and modify it to your heart’s content.</p>
+<p>Pandoc templates have an extensive syntax, but we don’t need to understand all of it.</p>
+<h3 id="what-i-customized">What I customized</h3>
+<p>For my template, I modified three things:</p>
+<ol type="1">
+<li><p><del>I removed the part that loads default HTML styling because I already have a stylesheet for my website.</del> I actually restored this section as it enables syntax highlighting on code blocks. I still think that it needs to be mentioned. More on that later.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>  <span class="kw">&lt;style&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  $styles<span class="fu">.html</span>()$</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="kw">&lt;/style&gt;</span></span></code></pre></div></li>
+<li><p>I removed the automatically generated paragraphs for all the information except the title, which is:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>$if(subtitle)$</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;subtitle&quot;</span><span class="kw">&gt;</span>$subtitle$<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>$endif$</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>$for(author)$</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;author&quot;</span><span class="kw">&gt;</span>$author$<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>$endfor$</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>$if(date)$</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;date&quot;</span><span class="kw">&gt;</span>$date$<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>$endif$</span></code></pre></div>
+<p>I think this is the right time to discuss basic template syntax. In pandoc templates, blocks enclosed with dollar signs are either variables or statements.</p></li>
+</ol>
+<ul>
+<li>If statements such as <code>$if(date)$</code> check for the existence of a variable and add the content below itself and above the <code>$endif$</code> statement if the variable exists.</li>
+<li>For statements like <code>$for(author)$</code> check for existence of the list inside the parenthesis, and they repeatedly add the content between the for and endfor statements for each member of the specified list.</li>
+<li><code>$var$</code> is substituted with the variable var if it is inside an if statement. If it’s inside a for statement, <code>$var$</code> is substituted with a member of the list named var for each iteration.</li>
+</ul>
+<ol start="3" type="1">
+<li><p>Lastly I added some common links and info at the end of the template before the closing body tag</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/index.html&quot;</span><span class="kw">&gt;</span>Back to the homepage<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;bottom&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">&lt;h3&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;mailto:berkan.sahin@ug.bilkent.edu.tr&quot;</span><span class="kw">&gt;</span>Contact me at:berkan.sahin[at]ug.bilkent.edu.tr<span class="kw">&lt;/a&gt;&lt;/h3&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="kw">&lt;h5&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/about.html&quot;</span><span class="kw">&gt;</span>About Me<span class="kw">&lt;/a&gt;</span> | <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://github.com/berkan-sahin/&quot;</span><span class="kw">&gt;</span>GitHub: berkan-sahin<span class="kw">&lt;/a&gt;&lt;/h5&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>$if(date)$</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="kw">&lt;h6&gt;</span>Last update: $date$<span class="kw">&lt;/h6&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>$endif$</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="kw">&lt;h6&gt;</span>Generated with <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://pandoc.org&quot;</span><span class="kw">&gt;</span>Pandoc<span class="kw">&lt;/a&gt;&lt;/h6&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div></li>
+</ol>
+<h2 id="metadata-blocks">Metadata blocks</h2>
+<p>One of the most important features of Pandoc is the metadata blocks. Metadata blocks contain information such as the page title, author(s), the date and the stylesheet(s) for the page. They are not rendered directly in the final page, but they influence its look and structure by setting variables that are then placed into the template accordingly.</p>
+<p>Metadata blocks are usually at the top of the document and they <em>must</em> begin and end with three hyphens (<code>---</code>). They are written in a language called YAML.</p>
+<h3 id="some-examples">Some examples</h3>
+<ul>
+<li><code>title: Example</code> sets the title to Example. By default this adds a heading to the very top of the page and sets the page title (The text in your tab bar) to Example.</li>
+<li><div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="at">    </span><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Berkan Şahin</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="at">    </span><span class="kw">-</span><span class="at"> John Doe</span></span></code></pre></div>
+creates a list named author with the values Berkan Şahin and John Doe in it. Lists are usually evaluated by <code>$for$</code> statements and they are useful for adding a variable amount of items to your document such as multiple stylesheets or multiple authors.</li>
+<li><div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">  abstract</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>      This is an abstract</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>      Lorem ipsum dolor sit amet.</span></code></pre></div>
+denotes a variable that spans multiple lines.</li>
+</ul>
+<p>Here is the metadata block I used for this page at the time of writing this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Webpage Generation for Lazy People</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Berkan Şahin</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 02/12/2020</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="fu">css</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="kw">-</span><span class="at"> /styles.css</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="pp">---</span></span></code></pre></div>
+<h2 id="generating-the-html-document">Generating the HTML Document</h2>
+<p>If you are satisfied with your markdown file, you can now call <code>pandoc</code> to generate the final HTML page.</p>
+<p>For this example, suppose that your markdown file is named <code>content.md</code>. We will also assume that your custom template is in the same directory as your markdown file and is named <code>template.html</code>. In this case, you tell pandoc to generate your webpage by typing</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="ex">pandoc</span> -s content.md --template=template.html -o content.html</span></code></pre></div>
+<h3 id="explaining-the-flags">Explaining the flags</h3>
+<ul>
+<li>The <code>-s</code> option in this command tells pandoc that this is a standalone webpage.</li>
+<li><code>content.md</code> is the name of our markdown file</li>
+<li><code>--template=template.html</code> tells pandoc to use our custom template named <code>template.html</code></li>
+<li>The <code>-o content.html</code> tells pandoc to generate a HTML file named <code>content.html</code></li>
+</ul>
+<h2 id="automating-the-build-process-with-make">Automating the build process with make</h2>
+<p>You probably noticed that this command is pretty long and you probably thought that typing this every time you want to generate a webpage is a tedious task and seems contradictory to our goals. In fact, you are right. But thankfully we can use tools such as <code>make</code>, which are designed to make the tedious process of building software easier while still being very flexible.</p>
+<h3 id="what-is-make">What is make?</h3>
+<p><a href="https://gnu.org/">The GNU project</a> define make as <code>a tool which controls the generation of executables and other non-source files of a program from the program's source files</code>. Make is mostly used to build large programs given their source code, but we can employ a small fraction of make’s capabilities to make the webpage generation process almost as easy as saying <code>make me a webpage</code>.</p>
+<h3 id="getting-make">Getting make</h3>
+<p>Make is a tool with a relatively long history and therefore has many different <a href="https://en.wikipedia.org/wiki/Make_(software)#Derivatives">implementations</a>. The one we are interested in is <a href="https://www.gnu.org/software/make/">GNU make</a>, as it has become the de-facto industry standard of make derivatives.</p>
+<ul>
+<li>If you are on GNU/Linux, you either already have make installed or you can easily install it the same way you install other software. 99.9% of the time GNU make is easily available in your distribution’s package repositories and it is usually called make. For example on Debian, Ubuntu and their derivatives, you can type <code>sudo apt install make</code> in a terminal to get GNU make.</li>
+<li>On macOS, make is part of a bundle called XCode Developer Tools. Therefore the most straightforward way of installing make (among other potentially useful tools) is typing <code>xcode-select --install</code> on a terminal. <em>(Special thanks to <a href="https://berkcakar.dev">Berk Çakar</a> for the instructions)</em></li>
+<li>If you are on Windows, you can use the <a href="https://chocolatey.org/">Chocolatey</a> package manager to install make and other tools. Once you have chocolatey <a href="https://chocolatey.org/install">installed</a>, simply type <code>choco install make</code> in a PowerShell terminal.</li>
+</ul>
+<h3 id="makefiles">Makefiles</h3>
+<p>Makefiles are simply the equivalent of recipes, but for programs instead of food. A makefile for a robot that makes a cake would be:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="dv">Apple Cake :</span><span class="dt"> Apples, flour, sugar, eggs etc.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    preheat oven</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    mix flour and eggs</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    ...</span></code></pre></div>
+<p>Using this example, we can examine the general form of a makefile:</p>
+<ul>
+<li><code>Apple Cake</code> is the name of our output, which would be the HTML file in our case.</li>
+<li><code>Apples, flour, sugar, eggs etc.</code> are the ingredients that are used to make the particular recipe. If an ingredient is missing, make looks for a recipe for the missing ingredient, if there is any. If no recipe is found, make fails. This behavior is especially useful when building large software that has complex dependency relationships.</li>
+<li>The following indented lines are the actual instructions that are executed by make while building the program. These are executed sequentially.</li>
+</ul>
+<p>In our apple cake example, the specific type of apple that is used did not matter. The recipe wouldn’t change if say, you used Granny Smith apples instead of Amasya apples. Make actually allows for flexibility like that, and we can utilize this behavior to write a generic makefile for <em>any pandoc-compliant markdown file</em>.</p>
+<p>After some ingenuity and examination of <a href="https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html#Pattern-Rules">GNU Make Documentation</a> we have this generic form, which you can download <a href="Makefile">here</a>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="dv">%.html :</span><span class="dt"> %.md template.html</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>        pandoc -s <span class="ch">$&lt;</span> --template=template.html -o <span class="ch">$@</span></span></code></pre></div>
+<p>This recipe basically builds <code>x.html</code> from <code>x.md</code> using <code>template.html</code> as a template where x is any valid filename sans extension, provided that <code>x.md</code> exists.</p>
+<p>Please keep in mind that your makefile must be named <code>Makefile</code> and it must be stored in the directory where <code>make</code> is run. Now you can type <code>make mypage.html</code> and your computer will automatically generate <code>mypage.html</code> from <code>mypage.md</code>, saving precious minutes which can be used in other activities (e.g sleeping). Magic, right?</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://pandoc.org/MANUAL.html">The pandoc manual</a></li>
+<li><a href="https://www.gnu.org/software/make/manual/make.html">GNU Make Documentation</a></li>
+</ul>
+<p><strong>[06/05/2021]:</strong> It’s been 4 months and this tutorial is still not complete, I know. This method will probably be obsoleted by <code>panbash</code> in a month or so anyway. Maybe I’ll adapt this tutorial to <strong>that software</strong> instead (It will be a lot easier and less janky than my Makefile solution). Stay tuned for that!</p>
+<a href="/">Back to the homepage</a>
+<div class="bottom">
+<h3><a id="shout" href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+<h5><a href="/about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+<h6>Last update: 04/01/2021</h6>
+<h6>Generated with <a href="https://pandoc.org">Pandoc</a></h6>
+</div>
+<script src="/fancytitle.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+img.quack{
+    width: 200px;
+}
+div.quack{
+    flex-basis: 200px;
+}
+img.quack{
+    display: block;
+    margin: auto;
+}
+
+p.quack{
+    text-align: center;
+}
+h1{
+    font-style: normal;
+}
+div.intro_container{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+li{
+    margin-left: 0px;
+}
+div.blog, div.misc, div.projects {
+    min-width: 400px;
+    max-width: 500px;
+}
+
+@media (max-width: 700px) {
+    div.tutorials, div.random, div.projects {
+        margin: auto;
+        min-width: unset;
+    }
+}

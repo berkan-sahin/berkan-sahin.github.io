@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ENG102 Letter Grade Calculator</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="finals.css">
+        <script src="eng102.js"></script>
+        <!-- Now you don't have to squint on mobile! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body onload="calculateFinal()">
+        <h1>Letter Grade Calculator for ENG102</h1>
+        <br>
+        <table class="inputs">
+            <tbody>
+                <tr>
+                    <th>Assessment</th>
+                    <th>Score</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Library Skills Task (out of 10)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="library" id="library" oninput="calculateFinal()" value="10" max="10" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Academic Essay (out of 22)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="essay" id="essay" value="22" oninput="calculateFinal()" max="22" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Oral Presentation (out of 24)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="oral" id="oral" oninput="calculateFinal()" value="24" max="24" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Research Paper Outline (out of 15)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="outline" id="outline" oninput="calculateFinal()" value="15" max="15" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Research Paper (out of 100)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="rp" id="rp" oninput="calculateFinal()" value="100" max="100" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>End of Course Interview (out of 60)</p>
+                    </td>
+                    <td>
+                        <input type="number" name="interview" id="interview" value="60" oninput="calculateFinal()" max="60" min="0">
+                    </td>
+            </tbody>
+        </table>
+        <br>
+        <h2 id="results"></h2>
+        <a href="/">Back to the homepage</a>
+        <div class="bottom">
+            <h3><a id=shout href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+            <h5><a href="/about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+            <h6>Last update: 24/05/2021</h6>
+        </div>
+        <script src="/fancytitle.js"></script>
+    </body>
+</html>

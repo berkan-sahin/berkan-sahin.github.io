@@ -1,0 +1,118 @@
+#+title: Setting up the Vivado Design Suite
+#+author: Berkan Şahin
+#+date: 2021-09-01
+
+
+** Acquiring the installer
+Basys3 is a development board that is designed specifically for Xilinx's Vivado Design Suite. Therefore, we first need to install [[https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-2.html][the WebPack edition of Vivado Design Suite]].
+
+*NOTE:* The 2020.3 version of Vivado does not support Artix-based boards like Basys3. Do not install Vivado Design Suite 2020.3, instead install 2020.2 from [[https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2020-2.html][here]].
+
+[[./pic/download_screen.png]]
+
+Once you select the self-extracting installer for GNU/Linux, you are prompted to create an Xilinx account or log in to continue. It is recommended to use a corporate or university e-mail address if you have one, but an account tied to an ordinary e-mail address will work for Vivado.
+
+[[./pic/addr.png]]
+
+Once you log in, you need to fill in a bunch of information to comply with US export regulations, including your address.
+
+Once done, you can click on "Download" and the installer will start downloading.
+
+** Vivado Installer Walkthrough
+The installer is just a shell script with a compressed binary embedded in it. To run it, open a terminal, navigate to the directory you downloaded the installer to, and type:
+
+#+begin_src bash
+sudo bash <the name of the installer executable>
+#+end_src
+
+[[./pic/inst_1.png]]
+
+Once the installer is extracted, you should be greeted with the above screen. You can safely ignore the unsupported OS warning, as the design suite itself is distro-agnostic.
+
+[[./pic/inst_2.png]]
+
+In the next screen, you will be asked to log into your Xilinx account. You can use the account you created (or logged into) before downloading the installer for this.
+
+[[./pic/inst_3.png]]
+
+Once you are looged in, you will be asked to select a Xilinx product to install. You should (obviously) select Vivado here.
+
+[[./pic/inst_4.png]]
+
+Then you need to pick a certain edition of Vivado. Here you should select the WebPack edition unless your institution provides a license for one of the paid editions.
+
+[[./pic/inst_5.png]]
+
+Now you need to select the components you wish to install. You may want to only select the architectures you will use in the "Devices" seciton, as selecting every supported device will considerably bloat your system. /Tip: If you are using a Basys3 board like me, you only need to select Artix 7 from Devices -> Production Devices -> 7 Series/ It is not recommended to modify the "Design Tools" section. Once you are satisfied, click "Next".
+
+[[./pic/inst_6.png]]
+
+Next is the License Agreements screen. This one is pretty self-explanatory.
+
+[[./pic/inst_7.png]]
+
+Here, you might want to change the installation directory from ~/tools/Xilinx~ to ~/opt/Xilinx~, which makes more sense for a UNIX-like system. The installer might ask for your permission to create the installation directory, in which case, you should answer "Yes".
+
+[[./pic/inst_8.png]]
+
+The next screen is a summary of the options selected in the previous screens. You can click "Install" here, unless you've forgotten to change a specific setting.
+
+[[./pic/inst_9.png]]
+
+Now you wait, while Vivado Design Suite downloads. It took around an hour to download the files on my 35Mbps VDSL connection.
+
+** Post-Install Fixes
+There are a few more things we need to do before we can use Vivado.
+
+Let's start by copying the application shortcuts to a common location:
+
+#+begin_src bash
+sudo cp /root/.local/share/applications/*.desktop /usr/share/applications
+update-desktop-database
+#+end_src
+
+[[./pic/vivado_shortcuts.png]]
+
+Now you should be able to see shortcuts related to Vivado in your launcher of choice.
+
+For some locales (such as ~tr_TR.UTF-8~) the decryption algorithm used by Vivado Design Suite can malfunction, causing errors during synthesis. To fix this, we need to edit the desktop entry for the Vivado Design Suite:
+
+#+begin_src bash
+sudo nano /usr/share/applications/Vivado\ 2020.2_*
+#+end_src
+
+[[./pic/nano.png]]
+
+A desktop entry contains information about an application such as its name, icon, and the path to the application's executable. We will modify the line starting with ~Exec=~ to run a utility called ~env~, which will run Vivado in a modified environment where the locale is set to US English.
+
+#+begin_src conf
+Exec=env LANG=en_US.UTF-8 /opt/Xilinx/Vivado/2020.2/bin/vivado
+#+end_src
+
+[[./pic/nano_2.png]]
+Once you are done, save the file by pressing ~Ctrl+O~ and then pressing the Enter/Return key. You can exit the editor afterwards by pressing ~Ctrl+X~ on your keyboard.
+
+Now we can install the "cable drivers":
+
+#+begin_src bash
+cd /opt/Xilinx/Vivado/2020.2/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+sudo ./install_drivers
+sudo usermod -aG dialout $USER
+#+end_src
+
+** Installing the board files
+Digilent provides Vivado configuration files for its boards, which are hosted in their Git repositories. Assuming that Git is installed, you can download these files easily. Just navigate to the directory you would like to put these files in via the terminal and run the following:
+
+#+begin_src bash
+git clone https://github.com/Digilent/digilent-xdc.git
+git clone https://github.com/Digilent/vivado-boards.git
+#+end_src
+
+The files in the ~vivado-boards~ repository should be copied to the directory where Vivado Design Suite is installed for them to be recognized. To do so, you can navigate to the newly cloned ~vivado-boards~ directory and run the following command:
+
+#+begin_src bash
+sudo cp -r new/board_files/* /opt/Xilinx/Vivado/2020.2/data/boards/board_files
+#+end_src
+
+** Conclusion
+Now you should be able to use the Vivado Design Suite without any problems. You can follow [[https://digilent.com/reference/learn/programmable-logic/tutorials/basys-3-programming-guide/start][this guide]] to create a project and program your device.

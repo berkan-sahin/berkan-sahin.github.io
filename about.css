@@ -1,0 +1,26 @@
+img.cool_img{
+    width: 200px;
+}
+.img_descriptor{
+    text-align: center;
+}
+p.intro {
+    margin-left: 0px;
+}
+div.intro {
+    width: 40%;
+}
+div.intro_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    div.intro_container {
+        flex-direction: column-reverse;
+    }
+    div.intro, div.cool_img {
+        margin: auto;
+    }
+}

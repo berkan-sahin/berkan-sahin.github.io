@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SSH on macOS and Linux</title>
+        <link rel="stylesheet" href="/styles.css">
+        <!-- Now you don't have to squint on mobile! -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+        <h1>SSH'ing into remote servers on macOS and Linux</h1>
+        <p>When the topic of SSH arises, most tutorials use PuTTY as the program of choice. But PuTTY is a Windows-only program,  therefore people not on Windows cannot use it to access remote computers.
+            <br>However, there is another SSH client called OpenSSH that is installed by default on macs and most Linux distributions which can be used to access remote computers/servers as well.</p>
+        <h3>To use OpenSSH:</h3>
+        <ol>
+            <li>Open your terminal. (Do <a href="https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac">this</a> on macOS)
+                (<a href="https://ubuntu.com/tutorials/command-line-for-beginners#3-opening-a-terminal">This</a> or <code>Ctrl + Alt + T</code> does the trick on Linux most of the time.)  </li>
+            <li>Type <code>ssh username@server_addr</code> in your terminal, replacing username and server_addr
+                with your username and the server's IP address/domain respectively<br>
+                For example, I type <code>ssh berkan.sahin@ftp.ug.bilkent.edu.tr</code> to access my home directory on Bilkent servers.</li>
+            <li>Enter your password when prompted<br>
+                <em>Note: If it is your first time connecting to the servers, ssh might ask you to confirm the fingerprint of the server. This is completely normal.</em></li>
+            <li>You now have access to a remote shell. Enjoy UNIX! <em>Remember, every command you type will be executed on the remote computer.</em></li>
+            <li>When you are done, type <code>exit</code> (or <code>logout</code>). This will log you out and close the connection between you and the remote server.</li>
+        </ol>
+        <a href="/">Back to the homepage</a>
+        <div class="bottom">
+            <h3><a id=shout href="mailto:berkan@bsahin.xyz">Contact me at:berkan[at]bsahin.xyz</a></h3>
+            <h5><a href="about.html">About Me</a> | <a href="https://github.com/berkan-sahin/">GitHub: berkan-sahin</a> | <a rel="me" href="https://fostodon.org/@ayupak">Mastodon</a></h5>
+            <h6>Last update: 02/12/2020</h6>
+        </div>
+        <script src="/fancytitle.js"></script>
+    </body>
+</html>
