@@ -2,4 +2,6 @@
 #+author: Berkan Şahin
 #+date: 2021-12-31
 
-Effective 2021-12-31, I will be moving this website from my VPS to GitLab Pages. To combat possible outages, the VPS will continue serving this site until 2022-01-05 under the domain [[alt.bsahin.xyz]]. Ideally, you shouldn't notice any difference. Happy new year!
+Effective 2021-12-31, I will be moving this website from my VPS to GitLab Pages. To combat possible
+outages, the VPS will continue serving this site until 2022-01-05 under the domain [[alt.bsahin.xyz]].
+Ideally, you shouldn't notice any difference. Happy new year!

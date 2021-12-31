@@ -13,7 +13,8 @@ body{
     color: #ebdbb2;
     overflow-wrap: break-word;
     font-size: 12pt;
-    margin: 0.4em;
+    margin: 0.4em 0.4em 0.4em 0.4em;
+    max-width: unset;
     width: 80%;
     margin: auto;
 }
